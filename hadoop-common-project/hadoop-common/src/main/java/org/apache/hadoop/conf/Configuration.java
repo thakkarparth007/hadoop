@@ -725,6 +725,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
     }
     addDefaultResource("core-default.xml");
     addDefaultResource("core-site.xml");
+    addDefaultResource("core-ctest.xml"); //CTEST
   }
   
   private Properties properties;
