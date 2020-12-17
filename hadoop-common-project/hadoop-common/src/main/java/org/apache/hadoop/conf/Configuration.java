@@ -1101,7 +1101,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       ctestParam = n; //CTEST
       result = substituteVars(getProps().getProperty(n));
     }
-    LOG.warn("[CTEST][GET-PARAM] " + ctestParam); //CTEST
+    LOG.warn("[CTEST][GET-PARAM] " + ctestParam + getStackTrace()); //CTEST
     return result;
   }
 
@@ -1196,7 +1196,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       ctestParam = n; //CTEST
       result = getProps().getProperty(n);
     }
-    LOG.warn("[CTEST][GET-PARAM] " + ctestParam); //CTEST
+    LOG.warn("[CTEST][GET-PARAM] " + ctestParam + getStackTrace()); //CTEST
     return result;
   }
 
@@ -1373,7 +1373,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       ctestParam = n; //CTEST
       result = substituteVars(getProps().getProperty(n, defaultValue));
     }
-    LOG.warn("[CTEST][GET-PARAM] " + ctestParam); //CTEST
+    LOG.warn("[CTEST][GET-PARAM] " + ctestParam + getStackTrace()); //CTEST
     return result;
   }
 
