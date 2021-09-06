@@ -35,6 +35,15 @@ import org.junit.Test;
 import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;
 
+import static org.junit.Assert.*;
+import static org.junit.Assume.*;
+
+import org.junit.runner.RunWith;
+import com.pholser.junit.quickcheck.*;
+import com.pholser.junit.quickcheck.generator.*;
+import edu.berkeley.cs.jqf.fuzz.*;
+
+@RunWith(JQF.class)
 public class TestHAAdmin {
   private static final Log LOG = LogFactory.getLog(TestHAAdmin.class);
   
@@ -95,6 +104,22 @@ public class TestHAAdmin {
     assertEquals(0, runTool("-help"));
     assertEquals(0, runTool("-help", "transitionToActive"));
     assertOutputContains("Transitions the service into Active");
+  }
+
+  @Fuzz
+  public void testHelpFuzz(int x) throws Exception {
+    assumeTrue(x < 10);
+
+    // if (x % 2 == 0) {
+    // throw new Exception("Hello world");
+    // }
+
+    if (x % 2 == 0)
+      assertTrue(false);
+
+    // assertEquals(0, runTool("-help"));
+    // assertEquals(0, runTool("-help", "transitionToActive"));
+    // assertOutputContains("Transitions the service into Active");
   }
 
   private Object runTool(String ... args) throws Exception {

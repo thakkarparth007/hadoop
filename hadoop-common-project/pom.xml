@@ -54,7 +54,32 @@
         <configuration>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>edu.berkeley.cs.jqf</groupId>
+        <artifactId>jqf-maven-plugin</artifactId>
+        <version>1.7</version>
+      </plugin>
     </plugins>
   </build>
 
+
+
+  <dependencies>
+    <!-- JQF: test dependency for @Fuzz annotation -->
+    <dependency>
+        <groupId>edu.berkeley.cs.jqf</groupId>
+        <artifactId>jqf-fuzz</artifactId>
+        <!-- confirm the latest version at: https://mvnrepository.com/artifact/edu.berkeley.cs.jqf -->
+        <version>1.7</version> 
+        <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit-QuickCheck: API to write generators -->
+    <dependency>
+        <groupId>com.pholser</groupId>
+        <artifactId>junit-quickcheck-generators</artifactId>
+        <version>0.9</version>
+    </dependency>
+  </dependencies>
 </project>
